@@ -451,40 +451,40 @@ height:50vh;
 <p>4、在浏览器中通过<code>host:3000</code>登录Grafana服务器（<code>用户名/密码：admin/admin</code>）</p>
 <p><img src="https://github.com/yiming1012/resource/blob/master/grafanalogin.png?raw=true" alt></p>
 <p>5、添加数据源为TDengine</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-f3c4fd9c6ecbe816.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-832deb6da6cd4cfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana51.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana52.png?raw=true" alt></p>
 <p>用户名/密码为连接TDengine的root/taosdata，<code>而不是Grafana的admin/admin</code>。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-e69095555f10a18d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana53.png?raw=true" alt></p>
 <p>6、创建dashboard实现数据可视化</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-929c450afdf64bd0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-5248396875858018.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-5efa2d0fe274cbfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-ef6d14fc81642766.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana61.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana62.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana63.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana64.png?raw=true" alt></p>
 <p>以上分为7个步骤，分别用1-7标明：</p>
 <blockquote>
 <p>1、点击Queries图标<br>2、选择Query中的TDengine<br>3、在INPUT SQL中填入需要显示的指标，以上为CPU利用率:<br><code>select avg(f_usage_user) from udb.cpu WHERE ts&gt;=$from and ts&lt;$to interval($interval)</code><br>4、为Panel形取一个别名：CPU<br>5、点击GENERATE SQL，生成图形<br>6、选择需要展示的时间段，如Last 5 minutes<br>7、选择图形刷新的频率，如5s</p>
 </blockquote>
 <p>7、配置Visualization参数</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-0bb18b87062b8198.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana7.png?raw=true" alt></p>
 <p>8、设置General参数</p>
 <blockquote>
 <p>点击General，为Panel修改名称为：CPU利用率</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-8357904675e6f505.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana8.png?raw=true" alt></p>
 <p>9、配置Settings</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-00451012d5021e7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-483e2678817c5205.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana91.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana92.png?raw=true" alt></p>
 <p>10、保存后得到下图</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-91703e148ac35826.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana10.png?raw=true" alt></p>
 <p>11、进入Grafana官网<a href="https://grafana.com/grafana/plugins?type=panel" target="_blank" rel="noopener">https://grafana.com/grafana/plugins?type=panel</a>还可以安装一些插件，如时钟等</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-03e0b0584f945a3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-4237544a967bacbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana111.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana112.png?raw=true" alt></p>
 <blockquote>
 <p>grafana-cli plugins install grafana-clock-panel<br>systemctl restart grafana-server</p>
 </blockquote>
 <p>重启Grafana后，刷新dashboard便会出现Clock</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-eca217af67f916d0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-9dddbdd5192aeb23.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana113.png?raw=true" alt></p>
+<p><img src="https://github.com/yiming1012/resource/blob/master/grafana114.png?raw=true" alt></p>
 <p>12、其他监控指标如下：</p>
 <h4 id="磁盘利用率"><a href="#磁盘利用率" class="headerlink" title="磁盘利用率"></a>磁盘利用率</h4><blockquote>
 <p><code>select avg(f_used_percent) from udb.disk WHERE ts&gt;=$from and ts&lt;$to interval($interval);</code></p>
@@ -520,7 +520,7 @@ height:50vh;
             <p>原文作者：<a href="https://yiming1012.github.io">易明</a>
             <p>原文链接：<a href="https://yiming1012.github.io/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/">https://yiming1012.github.io/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/</a>
             <p>发表日期：<a href="https://yiming1012.github.io/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/">August 13th 2019, 12:27:19 pm</a>
-            <p>更新日期：<a href="https://yiming1012.github.io/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/">August 13th 2019, 3:51:38 pm</a>
+            <p>更新日期：<a href="https://yiming1012.github.io/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/">August 13th 2019, 4:07:58 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
