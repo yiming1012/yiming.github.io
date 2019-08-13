@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yiming1012.github.io/"/>
-  <updated>2019-08-13T02:05:40.262Z</updated>
+  <updated>2019-08-13T02:25:17.154Z</updated>
   <id>https://yiming1012.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo修改主题</title>
+    <link href="https://yiming1012.github.io/2019/08/13/Hexo%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/"/>
+    <id>https://yiming1012.github.io/2019/08/13/Hexo修改主题/</id>
+    <published>2019-08-13T02:24:10.000Z</published>
+    <updated>2019-08-13T02:25:17.154Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>文章作者：易明<br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="https://links.jianshu.com/go?to=mailto%3A1129079384%40qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p></blockquote><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>   最近，基于Win10+Hexo+Github搭建了个人博客，但是主题比较朴素，于是决定根据Hexo官网提供的主题进行设置。</p><h1 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h1><ol><li><p>进入<code>Hexo</code>官网<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> 下载自己喜欢的主题<br><img src="https://upload-images.jianshu.io/upload_images/18944909-918fb14425fb7300.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Themes"></p></li><li><p>根据官网提供安装步骤，在所建博客目录blog下点击鼠标右键进入<code>Git Bash</code>客户端，执行命令：</p><blockquote><p>npm i hexo-generator-json-content –save &amp;&amp; npm i –save hexo-wordcount &amp;&amp; git clone <a href="https://github.com/fi3ework/hexo-theme-archer.git" target="_blank" rel="noopener">https://github.com/fi3ework/hexo-theme-archer.git</a> themes/archer –depth=1</p></blockquote></li><li><p>将配置文件<code>_config.yml</code>中的theme配置改为：<code>archer</code></p><blockquote><p>theme:archer</p></blockquote></li><li><p>在配置文件<code>_config.yml</code>最后添加如下配置：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">  meta: true</span><br><span class="line">  pages: false</span><br><span class="line">  posts:</span><br><span class="line">    title: true</span><br><span class="line">    date: true</span><br><span class="line">    path: true</span><br><span class="line">    text: false</span><br><span class="line">    raw: false</span><br><span class="line">    content: false</span><br><span class="line">    slug: false</span><br><span class="line">    updated: false</span><br><span class="line">    comments: false</span><br><span class="line">    link: false</span><br><span class="line">    permalink: true</span><br><span class="line">    excerpt: false</span><br><span class="line">    categories: true</span><br><span class="line">    tags: true</span><br></pre></td></tr></table></figure></li><li><p>进入<code>D:\blog\themes\archer</code>目录下配置<code>_config.yml</code>文件，里面的图片地址为相对路径，你可以将需要使用的图片放到下面目录中：<code>D:\blog\themes\archer\source\intro</code><br><img src="https://upload-images.jianshu.io/upload_images/18944909-0bc34f50aeb8688d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="config.yml"></p></li><li><p>通过命令提交：<code>hexo d -g</code>，看到效果图如下：<br><img src="https://upload-images.jianshu.io/upload_images/18944909-97101ecf9a5d227b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="GitHub"></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;文章作者：易明&lt;br&gt;简书主页：&lt;a href=&quot;https://www.jianshu.com/u/6ebea55f5cec&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.jianshu.com/u/6e
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Win10+Hexo+GitHub搭建个人博客详解</title>
