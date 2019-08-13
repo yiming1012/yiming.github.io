@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>天天学习 好好向上</title>
+    <title>Windows和Linux下Python连接TDengine · 天天学习 好好向上</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -77,6 +77,8 @@
 
     <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
@@ -201,14 +203,23 @@
 </head>
 
     
-        <body class="home-body">
+        <body class="post-body">
     
     
-<header class="header index-header">
+<header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >千里之行 始于足下</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Windows和Linux下Python连接TDengine</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>千里之行 始于足下</a>
 </header>
@@ -227,17 +238,17 @@ height:50vh;
     <!-- 主页  -->
     
     
-    <!-- 文章页  -->
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/back.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/night.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            千里之行 始于足下
-            <!-- 文章页  -->
+            Windows和Linux下Python连接TDengine
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
@@ -245,12 +256,43 @@ height:50vh;
             <!-- 主页副标题  -->
             
             
-                zero in your target and go for it
-            
-            <!-- 文章页  -->
+            <!-- 404 -->
             
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">739</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/13</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -351,284 +393,92 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Windows和Linux下Python连接TDengine/" >
-            
-                <span>Windows和Linux下Python连接TDengine</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>文章作者：易明<br>个人博客：<a href="https://yiming1012.github.io/">https://yiming1012.github.io</a><br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="mailto:1129079384@qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p>
+</blockquote>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> &#160; &#160; &#160;&#160;从<a href="https://www.taosdata.com/cn/getting-started/" target="_blank" rel="noopener">https://www.taosdata.com/cn/getting-started/</a>下载并安装最新的安装包（最早的版本在访问过程中可能会出现<code>TSDB error: authentication failure</code>的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Python操作taos数据库，进行数据挖掘和建模。以下为我在Linux和Windows环境安装Python Connector的过程以及遇到的问题和解决办法。</p>
+<h1 id="Linux端安装Python-Connector："><a href="#Linux端安装Python-Connector：" class="headerlink" title="Linux端安装Python Connector："></a>Linux端安装Python Connector：</h1><p>1、确保Linux环境下安装了Python环境，我在测试服务器上安装的Anaconda3.7对应Python3.7.3。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-b915ee83d73a03c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>2、从<a href="https://github.com/taosdata/TDengine" target="_blank" rel="noopener">https://github.com/taosdata/TDengine</a>下载源码，解压后放到服务器上创建的TDengine目录下，在源代码的<code>src/connector/python</code>文件夹下可以找到linux和windows两个版本的安装包。进入linux目录，通过pip命令来安装taos。</p>
+<blockquote>
+<figure class="highlight plain"><figcaption><span>install python3/```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/18944909-dadd60c206d61f2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">3、执行命令python进入交互式界面，输入`import taos`报错。</span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/18944909-6fcfdf06f6ab4dcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">4、出现如上错误原因：libtaos.so文件在`/usr/lib`目录下，而Centos默认不会找`/usr/lib`下的文件，解决方法：`在环境变量配置文件/etc/profile中配置libtaos.so路径`。</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>编辑配置文件：vim /etc/profile</li>
+<li>添加配置：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib</li>
+<li>使修改生效：source /etc/profile<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5、再次进入python交互式界面，导入taos模块成功。</span><br><span class="line"></span><br><span class="line">![](https://upload-images.jianshu.io/upload_images/18944909-885ee68b3318603b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">6、编写python程序读取taos数据库中默认的log表。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="-- coding: utf-8 --"></a>-<em>- coding: utf-8 -</em>-</h1><p>import taos<br>import pandas as pd</p>
+<p>#连接taos数据库<br>conn = taos.connect(host=’90.0.12.227’, user=’root’, password=’taosdata’, port=6020,database=’log’)</p>
+<h1 id="通过获取到的数据库连接conn下的cursor-方法来创建游标"><a href="#通过获取到的数据库连接conn下的cursor-方法来创建游标" class="headerlink" title="通过获取到的数据库连接conn下的cursor()方法来创建游标"></a>通过获取到的数据库连接conn下的cursor()方法来创建游标</h1><p>cursor = conn.cursor()</p>
+<h1 id="sql语句"><a href="#sql语句" class="headerlink" title="sql语句"></a>sql语句</h1><p>sql = “SELECT * FROM log”</p>
+<h1 id="read-sql-方法返回的数据类型是DataFrame"><a href="#read-sql-方法返回的数据类型是DataFrame" class="headerlink" title="read_sql 方法返回的数据类型是DataFrame"></a>read_sql 方法返回的数据类型是DataFrame</h1><p>dataframe = pd.read_sql(sql, con=conn)<br>print(dataframe)</p>
+<p><code>`</code></p>
+<p>运行结果如下图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-be306ffc11a2585b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>#Windows端安装Python Connector：</p>
+<p>1、利用pip安装TDengine源代码中<code>src\connector\python\windows</code>目录下的python3对应的taos模块。</p>
+<blockquote>
+<p><code>pip install python3/</code>   </p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-796029e596e12469.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>2、从官网<a href="https://www.taosdata.com/cn/getting-started/" target="_blank" rel="noopener">https://www.taosdata.com/cn/getting-started/</a>中下载TDengine Windows客户端<code>tdengine-windows-client-x64-1.6.1.2.exe</code>。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-2ee994e4f040720e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>3、双击exe可执行文件，安装客户端，默认下一步到安装完成。这时<code>C:\Windows\System32\</code>和<code>C:\TDengine\driver\</code>目录下会生成taos.dll文件，通过这个文件便可以在Windows连接TDengine了。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-8d9c74aeebd11f0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<p>4、在pycharm中运行程序成功。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/18944909-9f27be8db839fea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>  &#160; &#160; &#160;&#160;从TDengine开源之初，我就比较关注Python操作TDengine，所以与TDengine的开发人员保持密切联系，本来只针对Linux环境的TDengine考虑到Windows环境下更便于开发和调试，TDengine工程师们也紧锣密鼓的进行开发测试，经过好几次的尝试，终于大功告成。在与大佬们交流的过程中，我受益匪浅。</p>
 
-简介 &#160; &#160; &#160;&#160;从https://www.taosdata.com/cn/getting-started/下载并安装最新的安装包（最早的版本在访问过程中可能会出现TSDB error: authentication failure的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Pyt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Python操作TDengine/" >
-            
-                <span>Windows和Linux下Python连接TDengine</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介 &#160; &#160; &#160;&#160;从https://www.taosdata.com/cn/getting-started/下载并安装最新的安装包（最早的版本在访问过程中可能会出现TSDB error: authentication failure的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Pyt...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://yiming1012.github.io">易明</a>
+            <p>原文链接：<a href="https://yiming1012.github.io/2019/08/13/Python操作TDengine/">https://yiming1012.github.io/2019/08/13/Python操作TDengine/</a>
+            <p>发表日期：<a href="https://yiming1012.github.io/2019/08/13/Python操作TDengine/">August 13th 2019, 10:33:12 am</a>
+            <p>更新日期：<a href="https://yiming1012.github.io/2019/08/13/Python操作TDengine/">August 13th 2019, 11:28:06 am</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Hadoop-Zookeeper-Hbase高可用集群搭建/" >
-            
-                <span>Hadoop+Zookeeper+Hbase高可用集群搭建</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介在工作中，生产环境和测试环境各搭建了一套Hadoop HA集群且运行稳定，以下为测试环境的详细部署流程以及在使用过程中踩过的坑和解决方案。
-集群配置
-服务器：五台处理器：Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz内存：16G磁盘：1THadoop版本：2.7.2Zookeeper版本：3.4.9Hbase版本：1.2.4
-
-集群基础环境配置1、关闭防火墙
-
-systemctl stop firewal...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Hexo修改主题/" >
-            
-                <span>Hexo修改主题</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介   最近，基于Win10+Hexo+Github搭建了个人博客，但是主题比较朴素，于是决定根据Hexo官网提供的主题进行设置。
-安装部署
-进入Hexo官网https://hexo.io/themes/ 下载自己喜欢的主题
-
-根据官网提供安装步骤，在所建博客目录blog下点击鼠标右键进入Git Bash客户端，执行命令：
-
-npm i hexo-generator-json-content –save &amp;&amp; npm i ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Win10+Hexo+GitHub搭建个人博客详解/" >
-            
-                <span>Win10+Hexo+GitHub搭建个人博客详解</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160; &#160; &#160;&#160; 最近，在简书上写了几篇博客，发现简书可能没做反扒机制，导致简书被盗文的情况屡见不鲜。于是，决定搭建属于自己的个人博客。通过调研，尝试了下Win10+Hexo+GitHub的组合，成功搭建了自己的博客，以下为详细步骤。
-基本环境1、Node.js下载和安装：https://nodejs.org/en/
-2、Git下载和安装：https://git-scm.com/download/wi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/12/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/12</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
-    
-</main>
-            <!-- profile -->
+    <ul class="post-paginator">
+        <li class="next">
             
-            <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /intro/tuzik.jpg >
-    <div class="profile-name">易明</div>
-    
-    <div class="profile-signature">
-        大数据界的小学生
-    </div>
-    
-    
-    <div class="profile-social">
-        
-    
-        
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/08/13/Windows和Linux下Python连接TDengine/" title= "Windows和Linux下Python连接TDengine">
+                    <div class="nextTitle">Windows和Linux下Python连接TDengine</div>
+                </a>
             
-                <a href="mailto:129079384@qq.com" class="iconfont-archer email" title=email ></a>
+        </li>
+        <li class="previous">
             
-        
-    
-        
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/08/13/Hadoop-Zookeeper-Hbase高可用集群搭建/" title= "Hadoop+Zookeeper+Hbase高可用集群搭建">
+                    <div class="prevTitle">Hadoop+Zookeeper+Hbase高可用集群搭建</div>
+                </a>
             
-                <a href="https://github.com/yiming1012" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-        
-            
-                <span class="iconfont-archer wechat" title=wechat>
-                  
-                  <img class="profile-qr" src="/intro/wechat.png" />
-                </span>
-            
-        
     
-        
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
     
-        
-    
-        
-    
-        
-    
-        
-    
-        
-            
-                <a href="https://www.facebook.com/profile.php?id=100011103365590" class="iconfont-archer facebook" target="_blank" title=facebook></a>
-            
-        
-    
-        
-            
-                <a href="https://twitter.com/yiming1012" class="iconfont-archer twitter" target="_blank" title=twitter></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
-    </div>
-    
-    
-        <div class="friends">
-            <div>FRIENDS</div>
-            
-                
-                    <span>
-                        <a href= https://www.jianshu.com/u/6ebea55f5cec target="_black">简书主页</a>
-                    </span>
-                
-            
-                
-            
-                
-            
-        </div>
-    
-    
-        <div class="about-me">
-            <a href = "/about" >ABOUT ME</a>
-        </div>
-    
-</div>
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
             
         </div>
         <footer class="footer footer-unloaded">
@@ -719,6 +569,24 @@ More...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux端安装Python-Connector："><span class="toc-number">2.</span> <span class="toc-text">Linux端安装Python Connector：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#coding-utf-8"><span class="toc-number">3.</span> <span class="toc-text">-- coding: utf-8 --</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过获取到的数据库连接conn下的cursor-方法来创建游标"><span class="toc-number">4.</span> <span class="toc-text">通过获取到的数据库连接conn下的cursor()方法来创建游标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sql语句"><span class="toc-number">5.</span> <span class="toc-text">sql语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#read-sql-方法返回的数据类型是DataFrame"><span class="toc-number">6.</span> <span class="toc-text">read_sql 方法返回的数据类型是DataFrame</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结："><span class="toc-number">7.</span> <span class="toc-text">总结：</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -910,6 +778,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
