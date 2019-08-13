@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://yiming1012.github.io/"/>
   <updated>2019-08-12T12:40:53.253Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://yiming1012.github.io/</id>
   
   <author>
     <name>易明</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/08/12/hello-world/"/>
-    <id>http://yoursite.com/2019/08/12/hello-world/</id>
+    <link href="https://yiming1012.github.io/2019/08/12/hello-world/"/>
+    <id>https://yiming1012.github.io/2019/08/12/hello-world/</id>
     <published>2019-08-12T12:40:53.253Z</published>
     <updated>2019-08-12T12:40:53.253Z</updated>
     
