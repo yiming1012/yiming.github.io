@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Windows和Linux下Python连接TDengine · 天天学习 好好向上</title>
+    <title>Win10+Hexo+GitHub搭建个人博客详解 · 天天学习 好好向上</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >千里之行 始于足下</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Windows和Linux下Python连接TDengine</a>
+                <a href="#" class="post-name">Win10+Hexo+GitHub搭建个人博客详解</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Windows和Linux下Python连接TDengine
+            Win10+Hexo+GitHub搭建个人博客详解
             <!-- 404 -->
             
         </h1>
@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">701</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">969</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -396,43 +396,75 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <blockquote>
-<p>文章作者：易明<br>个人博客：<a href="https://yiming1012.github.io/">https://yiming1012.github.io</a><br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="mailto:1129079384@qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p>
+<p>文章作者：易明<br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="mailto:1129079384@qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p>
 </blockquote>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> &#160; &#160; &#160;&#160;从<a href="https://www.taosdata.com/cn/getting-started/" target="_blank" rel="noopener">https://www.taosdata.com/cn/getting-started/</a>下载并安装最新的安装包（最早的版本在访问过程中可能会出现<code>TSDB error: authentication failure</code>的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Python操作taos数据库，进行数据挖掘和建模。以下为我在Linux和Windows环境安装Python Connector的过程以及遇到的问题和解决办法。</p>
-<h1 id="Linux端安装Python-Connector："><a href="#Linux端安装Python-Connector：" class="headerlink" title="Linux端安装Python Connector："></a>Linux端安装Python Connector：</h1><p>1、确保Linux环境下安装了Python环境，我在测试服务器上安装的Anaconda3.7对应Python3.7.3。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-b915ee83d73a03c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>2、从<a href="https://github.com/taosdata/TDengine" target="_blank" rel="noopener">https://github.com/taosdata/TDengine</a>下载源码，解压后放到服务器上创建的TDengine目录下，在源代码的<code>src/connector/python</code>文件夹下可以找到linux和windows两个版本的安装包。进入linux目录，通过pip命令来安装taos。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install python3/</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-dadd60c206d61f2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt>    </p>
-<p>3、执行命令python进入交互式界面，输入<code>import taos</code>报错。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-6fcfdf06f6ab4dcd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>4、出现如上错误原因：libtaos.so文件在<code>/usr/lib</code>目录下，而Centos默认不会找<code>/usr/lib</code>下的文件，解决方法：<code>在环境变量配置文件/etc/profile中配置libtaos.so路径</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 编辑配置文件：vim /etc/profile</span><br><span class="line">2. 添加配置：export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib</span><br><span class="line">3. 使修改生效：source /etc/profile</span><br></pre></td></tr></table></figure>
-<p>5、再次进入python交互式界面，导入taos模块成功。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-885ee68b3318603b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>6、编写python程序读取taos数据库中默认的log表。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">import taos</span><br><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">#连接taos数据库</span><br><span class="line">conn = taos.connect(host=&apos;90.0.12.227&apos;, user=&apos;root&apos;, password=&apos;taosdata&apos;, port=6020,database=&apos;log&apos;)</span><br><span class="line"># 通过获取到的数据库连接conn下的cursor()方法来创建游标</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line"># sql语句</span><br><span class="line">sql = &quot;SELECT * FROM log&quot;</span><br><span class="line"># read_sql 方法返回的数据类型是DataFrame</span><br><span class="line">dataframe = pd.read_sql(sql, con=conn)</span><br><span class="line">print(dataframe)</span><br></pre></td></tr></table></figure></p>
-<p>运行结果如下图：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-be306ffc11a2585b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<h1 id="Windows端安装Python-Connector："><a href="#Windows端安装Python-Connector：" class="headerlink" title="Windows端安装Python Connector："></a>Windows端安装Python Connector：</h1><p>1、利用pip安装TDengine源代码中<code>src\connector\python\windows</code>目录下的python3对应的taos模块。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&#160; &#160; &#160;&#160; 最近，在简书上写了几篇博客，发现简书可能没做反扒机制，导致简书被盗文的情况屡见不鲜。于是，决定搭建属于自己的个人博客。通过调研，尝试了下Win10+Hexo+GitHub的组合，成功搭建了自己的博客，以下为详细步骤。</p>
+<h1 id="基本环境"><a href="#基本环境" class="headerlink" title="基本环境"></a>基本环境</h1><p>1、Node.js下载和安装：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br><img src="https://github.com/yiming1012/resource/blob/master/nodejs.png?raw=true" alt="image.png"></p>
+<p>2、Git下载和安装：<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">https://git-scm.com/download/win</a><br><img src="https://github.com/yiming1012/resource/blob/master/git.png?raw=true" alt="image.png"></p>
+<p>3、GitHub注册和创建仓库：<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a><br>在GitHub账号创建成功之后，需要创建一个仓库来管理自己的文件。<br>(1) 点击个人主页右上角“<code>+</code>”里面的<code>New repository</code><br><img src="https://github.com/yiming1012/resource/blob/master/newrepository.png?raw=true" alt="image.png"><br>(2) 输入Repository name：<code>用户名.github.io</code>，注意：<code>用户名一定要和注册的用户名一样</code><br><img src="https://github.com/yiming1012/resource/blob/master/createnewres.png?raw=true" alt="image.png"></p>
+<p>4、配置SSH免密登录<br>（1）在桌面点击鼠标右键，选择”Git Bash Here”，打开Git Bash终端。<br>（2）设置user name和email：</p>
 <blockquote>
-<p><code>pip install python3/</code></p>
+<p>git config –global user.name “GitHub用户名”<br>git config –global user.email “GitHub注册邮箱”          </p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-796029e596e12469.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>2、从官网<a href="https://www.taosdata.com/cn/getting-started/" target="_blank" rel="noopener">https://www.taosdata.com/cn/getting-started/</a>中下载TDengine Windows客户端<code>tdengine-windows-client-x64-1.6.1.2.exe</code>。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-2ee994e4f040720e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>3、双击exe可执行文件，安装客户端，默认下一步到安装完成。这时<code>C:\Windows\System32\</code>和<code>C:\TDengine\driver\</code>目录下会生成taos.dll文件，通过这个文件便可以在Windows连接TDengine了。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-8d9c74aeebd11f0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<p>4、在pycharm中运行程序成功。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/18944909-9f27be8db839fea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
-<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>  &#160; &#160; &#160;&#160;从TDengine开源之初，我就比较关注Python操作TDengine，所以与TDengine的开发人员保持密切联系，本来只针对Linux环境的TDengine考虑到Windows环境下更便于开发和调试，TDengine工程师们也紧锣密鼓的进行开发测试，经过好几次的尝试，终于大功告成。在与大佬们交流的过程中，我受益匪浅。</p>
+<p>（3）生成SSH密钥</p>
+<blockquote>
+<p>ssh-keygen -t rsa -C “GitHub注册邮箱”</p>
+</blockquote>
+<p>（4）输入命令后直接回车即可，在C盘的用户目录下会生成<code>.ssh</code>文件夹（我电脑上的目录为<code>C:\Users\yiming\.ssh</code>），里面有私钥<code>id_rsa</code>和公钥<code>id_rsa_pub</code>。</p>
+<p>（5）在GitHub上添加SSH keys。具体步骤是点击GitHub头像下的<code>Settings</code>-&gt;<code>SSH and GPG keys</code>-&gt;<code>New SSH key</code>，将本地的公钥<code>id_rsa_pub</code>内容复制粘贴到其中即可。<br><img src="https://github.com/yiming1012/resource/blob/master/settings.png?raw=true" alt="image.png"><br><img src="https://github.com/yiming1012/resource/blob/master/ssh.png?raw=true" alt="image.png"></p>
+<p>（6）验证SSH免密是否成功</p>
+<blockquote>
+<p>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+</blockquote>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>1、进入cmd命令行，创建一个本地仓库，比如在D盘创建一个blog文件夹，切换到blog目录</p>
+<blockquote>
+<p>D:    //进入D盘<br>mkdir blog //创建blog目录<br>cd blog //切换到blog目录</p>
+</blockquote>
+<p>2、使用<code>淘宝</code>的npm源安装hexo</p>
+<blockquote>
+<p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a><br>cnpm install hexo-cli -g<br>cnpm install hexo –save</p>
+</blockquote>
+<p>3、在blog目录下点击鼠标右键，打开“<code>Git Bash</code>”终端，<code>如果在其他地方打开Git Bash终端，会出现：hexo：commad not found</code> 。初始化hexo：</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>4、安装依赖及相关插件</p>
+<blockquote>
+<p>cnpm install<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-generator-index --save</span><br><span class="line">cnpm install hexo-generator-archive --save</span><br><span class="line">cnpm install hexo-generator-category --save</span><br><span class="line">cnpm install hexo-generator-tag --save</span><br><span class="line">cnpm install hexo-server --save</span><br><span class="line">cnpm install hexo-deployer-git --save</span><br><span class="line">cnpm install hexo-deployer-heroku --save</span><br><span class="line">cnpm install hexo-deployer-rsync --save</span><br><span class="line">cnpm install hexo-deployer-openshift --save</span><br><span class="line">cnpm install hexo-renderer-marked@0.2 --save</span><br><span class="line">cnpm install hexo-renderer-stylus@0.2 --save</span><br><span class="line">cnpm install hexo-generator-feed@1 --save</span><br><span class="line">cnpm install hexo-generator-sitemap@1 --save</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>5、启动Hexo</p>
+<blockquote>
+<p>hexo server   （或者hexo s）</p>
+</blockquote>
+<p><img src="https://github.com/yiming1012/resource/blob/master/hexocommand.png?raw=true" alt="image.png"></p>
+<p>6、在浏览器中输入：<code>localhost:4000</code>，可以看到Hexo的示例页面<br><img src="https://github.com/yiming1012/resource/blob/master/hexoblog.png?raw=true" alt="image.png"></p>
+<h1 id="将博客部署到GitHub"><a href="#将博客部署到GitHub" class="headerlink" title="将博客部署到GitHub"></a>将博客部署到GitHub</h1><p>1、配置文件以关联远程仓库，在blog目录下找到<code>_config.yml</code>文件，用文本编辑器Nodepad ++或Sublime Text打开，在最下方添加远程仓库地址：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#Deployment</span><br><span class="line">##Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  #yiming1012改为你的github用户名（请修改）</span><br><span class="line">  repository: https://github.com/yiming1012/yiming1012.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>2、新建博客，在<code>D:\blog\source\_posts</code>目录下会生成firstblog.md的文件</p>
+<blockquote>
+<p>hexo new “firstblog”</p>
+</blockquote>
+<p>3、你可以根据Markdown语法来编辑上面的文件<br><img src="https://github.com/yiming1012/resource/blob/master/Markdownfile.png?raw=true" alt="博客内容.png"><br>4、设置身份信息</p>
+<blockquote>
+<p>git config –global user.name “GitHub用户名”<br>git config –global user.email “GitHub注册邮箱” </p>
+</blockquote>
+<p>5、部署到GitHub</p>
+<blockquote>
+<p>hexo deploy （可以简写为：hexo d）</p>
+</blockquote>
+<p>6、在浏览器上输入：<code>用户名.github.io</code>（我的是yiming1012.github.io）即可看到刚才写的博客已提交到仓库<br><img src="https://github.com/yiming1012/resource/blob/master/gitresult.png?raw=true" alt="blog.png"></p>
+<p>7、一个简单的博客就搭建起来了，后续还有待完善……<code>修改Hexo主题</code>请参见我的下一篇文章：<a href="https://www.jianshu.com/p/869c6bcd0647" target="_blank" rel="noopener">https://www.jianshu.com/p/869c6bcd0647</a></p>
+<h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><blockquote>
+<p>1.<a href="https://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/](https://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/)" target="_blank" rel="noopener">https://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/](https://hujichn.github.io/2016/04/06/Win10%E4%B8%8A%E5%88%A9%E7%94%A8github+hexo%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/)</a><br>2.<a href="https://zhuanlan.zhihu.com/p/22405775" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22405775</a></p>
+</blockquote>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://yiming1012.github.io">易明</a>
-            <p>原文链接：<a href="https://yiming1012.github.io/2019/08/13/Windows和Linux下Python连接TDengine/">https://yiming1012.github.io/2019/08/13/Windows和Linux下Python连接TDengine/</a>
-            <p>发表日期：<a href="https://yiming1012.github.io/2019/08/13/Windows和Linux下Python连接TDengine/">August 13th 2019, 10:33:12 am</a>
-            <p>更新日期：<a href="https://yiming1012.github.io/2019/08/13/Windows和Linux下Python连接TDengine/">August 13th 2019, 11:57:54 am</a>
+            <p>原文链接：<a href="https://yiming1012.github.io/2019/08/13/testblog/">https://yiming1012.github.io/2019/08/13/testblog/</a>
+            <p>发表日期：<a href="https://yiming1012.github.io/2019/08/13/testblog/">August 13th 2019, 9:01:10 am</a>
+            <p>更新日期：<a href="https://yiming1012.github.io/2019/08/13/testblog/">August 13th 2019, 3:21:58 pm</a>
             <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -441,16 +473,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href= "/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/" title= "TDengine+Telegraf+Grafana搭建监控系统">
-                    <div class="nextTitle">TDengine+Telegraf+Grafana搭建监控系统</div>
+                <a href= "/2019/08/13/Win10+Hexo+GitHub搭建个人博客详解/" title= "Win10+Hexo+GitHub搭建个人博客详解">
+                    <div class="nextTitle">Win10+Hexo+GitHub搭建个人博客详解</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/08/13/Hadoop-Zookeeper-Hbase高可用集群搭建/" title= "Hadoop+Zookeeper+Hbase高可用集群搭建">
-                    <div class="prevTitle">Hadoop+Zookeeper+Hbase高可用集群搭建</div>
+                <a href= "/2019/08/12/hello-world/" title= "Hello World">
+                    <div class="prevTitle">Hello World</div>
                 </a>
             
         </li>
@@ -577,7 +609,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux端安装Python-Connector："><span class="toc-number">2.</span> <span class="toc-text">Linux端安装Python Connector：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows端安装Python-Connector："><span class="toc-number">3.</span> <span class="toc-text">Windows端安装Python Connector：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结："><span class="toc-number">4.</span> <span class="toc-text">总结：</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本环境"><span class="toc-number">2.</span> <span class="toc-text">基本环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Hexo"><span class="toc-number">3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#将博客部署到GitHub"><span class="toc-number">4.</span> <span class="toc-text">将博客部署到GitHub</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献："><span class="toc-number">5.</span> <span class="toc-text">参考文献：</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
