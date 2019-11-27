@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yiming1012.github.io/"/>
-  <updated>2019-08-22T13:11:51.898Z</updated>
+  <updated>2019-11-27T07:25:31.577Z</updated>
   <id>https://yiming1012.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sqlyog将csv文件导入到mysql</title>
+    <link href="https://yiming1012.github.io/2019/11/27/sqlyog%E5%B0%86csv%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5%E5%88%B0mysql/"/>
+    <id>https://yiming1012.github.io/2019/11/27/sqlyog将csv文件导入到mysql/</id>
+    <published>2019-11-27T00:40:42.000Z</published>
+    <updated>2019-11-27T07:25:31.577Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>文章作者：易明<br>个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiming1012.github.io%2F" target="_blank" rel="noopener">https://yiming1012.github.io</a><br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="https://links.jianshu.com/go?to=mailto%3A1129079384%40qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p></blockquote><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>&#160;&#160;&#160;&#160;&#160;&#160;由于工作需要，初次尝试将csv文件导入到Mysql中时，出现了乱码，于是查阅资料，并成功解决，具体步骤记录如下。<br>1、首先根据需要导入的字段，在Mysql中创建表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE callLetterList (callLetter VARCHAR (20) NULL) ;</span><br></pre></td></tr></table></figure></p><p>2、新建一个Excel文件，并将文件后缀改为csv，将所需数据复制进去，并将文件另存为csv文件。<br><img src="https://github.com/yiming1012/resource/blob/master/sqlyog1.png?raw=true" alt></p><p>3、在sqlyog中，在表名上<code>右键</code>——<code>导入</code>——<code>导入使用本地加载的CSV数据</code>。<br><img src="https://upload-images.jianshu.io/upload_images/18944909-4870f7f1c4cff0d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p><p>4、选择csv文件路径。<br><img src="https://upload-images.jianshu.io/upload_images/18944909-42aa906fcbff161d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p><p>5、弹出来的界面需要更改两处地方：<code>字符集</code>和<code>改变...</code>。其中，字符集更改为<code>utf8</code>，改变字段为<code>变量长度</code>，在勾选<code>字段被终止</code>，并在后面填入英文“<code>,</code>”。或者直接点击<code>“填写excel友好值”</code>。<br><img src="https://upload-images.jianshu.io/upload_images/18944909-4bb385180c9d65c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/18944909-068da54c516c4ad7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p><p>6、设置好以上参数后，点击<code>导入</code>，即可将csv文件导入到数据库，效果如下图：<br><img src="https://upload-images.jianshu.io/upload_images/18944909-5b00ea204bc12b7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p><p>注：如果里面涉及到数字，可能出现科学计算法。按照如下方法解决：<code>选中指定列——数据——分列——分隔符号——逗号——文本</code><br><img src="https://upload-images.jianshu.io/upload_images/18944909-1b13efdd0a6212b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/18944909-42ef49de803a439c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/18944909-8c32d5ef8700dbc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt><br><img src="https://upload-images.jianshu.io/upload_images/18944909-3c6ea0d7c1ee7213.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;文章作者：易明&lt;br&gt;个人博客：&lt;a href=&quot;https://links.jianshu.com/go?to=https%3A%2F%2Fyiming1012.github.io%2F&quot; target=&quot;_blank&quot; rel=&quot;noopene
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Python发送带附件的邮件</title>
