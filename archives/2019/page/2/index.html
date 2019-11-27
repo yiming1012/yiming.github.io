@@ -346,204 +346,21 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/20/利用Tesseract-ocr进行图片文字识别/" >
+        <a class="abstract-title" href = "/2019/08/13/Hexo修改主题（Archer）/" >
             
-                <span>利用Tesseract-ocr进行图片文字识别</span>
-        </a>
-        <div class="abstract-content">
-            文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-背景简介&#160;&#160;&#160;&#160;最近有一个需求，识别随车清单图片，并提取关键信息。经过调研选取了两种方法尝试：
-
-1、Google维护的Tesseract-ocr2、百度云OCR
-
-Tesseract-ocr介绍1、从https://github.com/UB-Mannheim/tesseract/wiki下载对应的版本。推荐4.0以上。
-2、安装过程中需...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/20</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/29/利用HBase自带的Expor和Import跨集群数据迁移/" >
-            
-                <span>利用HBase Export/Import跨集群数据迁移</span>
+                <span>Hexo修改主题（Archer）</span>
         </a>
         <div class="abstract-content">
             
 文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
 
-背景&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;最近需要将本地HBase集群（Hadoop2.7.2+HBase1.2.4）数据迁移到阿里云集群（Hadoop2.7.7+HBase1.4.10）上，而两个集群之间是不能相互通信的。通过查阅资料，使用HBase自带的Export/Import实现，这种方法不是直接将原表数据拷贝...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/15/HBase集群配置Snappy压缩算法/" >
-            
-                <span>HBase集群配置Snappy压缩算法</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
+简介   最近，基于Win10+Hexo+Github搭建了个人博客，但是主题比较朴素，于是决定根据Hexo官网提供的主题进行设置。
+安装部署
+进入Hexo官网https://hexo.io/themes/ 下载自己喜欢的主题
 
-一、背景介绍&#160;&#160;&#160;&#160;&#160;在生产环境搭建了Hadoop HA集群（Hadoop2.7.7+HBase1.4.10）。根据官方文档，Snappy 压缩算法在Hadoop 1.0.2中即可使用。![]https://github.com/yiming1012/resource/blob/master/snappy1.png?raw=t...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/" >
-            
-                <span>Flume读取Tomcat日志文件传输到Kafka</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
+根据官网提供安装步骤，在所建博客目录blog下点击鼠标右键进入Git Bash客户端，执行命令：
 
-一、Flume简介1234567891011#官网简介Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. #System Requirements1.  Jav...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/08/sqlyog将csv文件导入到mysql/" >
-            
-                <span>sqlyog将csv文件导入到mysql</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;&#160;&#160;由于工作需要，初次尝试将csv文件导入到Mysql中时，出现了乱码，于是查阅资料，并成功解决，具体步骤记录如下。1、首先根据需要导入的字段，在Mysql中创建表1CREATE TABLE callLetterList (callLetter VARCHAR (20) NULL) ;
-2、新建一个Exc...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/22/Python发送带附件的邮件/" >
-            
-                <span>Python发送带附件的邮件</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;在工作中可能会遇到将生成的文件以邮件的方式发送给他人。通过SMTP（Simple Mail Transfer Protocol）简单邮件传输协议来发送邮件。这里主要用到Python中两个库：121. smtplib #对smtp协议进行了封装2. email   #用来创建邮件
-SMTP服务&#160;&#160;&#160...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/16/python利用openpyxl读写Excel/" >
-            
-                <span>python利用openpyxl读写Excel</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;&#160;&#160;最近的数据分析工作需要将数据插入到给定格式的Excel文件（.xlsx）中。通过调研发现：
-
-xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存为xls文件，不能为xlsx文件，而金山的WPS Office既可保存为xls，也可保存为xlsx。由于我用的是WPS，不存在不能对xl...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/16</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/" >
-            
-                <span>TDengine+Telegraf+Grafana搭建监控系统</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介：  &#160; &#160; &#160;&#160;TDengine是一个高效的存储、查询、分析时序大数据的平台，专为物联网、车联网、工业互联网、运维监测等优化而设计。而作为服务于一家车联网公司且有着钻研精神的大数据工程师，自然会摸索一番。 &#160; &#160; &#160;&#160;在安装好TDengine后，根据官方给出的TDengine+Telegra...
+npm i hexo-generator-jso...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -561,15 +378,17 @@ xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Windows和Linux下Python连接TDengine/" >
+        <a class="abstract-title" href = "/2019/08/13/Win10+Hexo+GitHub搭建个人博客详解/" >
             
-                <span>Windows和Linux下Python连接TDengine</span>
+                <span>Win10+Hexo+GitHub搭建个人博客详解</span>
         </a>
         <div class="abstract-content">
             
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
+文章作者：易明简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
 
-简介 &#160; &#160; &#160;&#160;从https://www.taosdata.com/cn/getting-started/下载并安装最新的安装包（最早的版本在访问过程中可能会出现TSDB error: authentication failure的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Pyt...
+简介&#160; &#160; &#160;&#160; 最近，在简书上写了几篇博客，发现简书可能没做反扒机制，导致简书被盗文的情况屡见不鲜。于是，决定搭建属于自己的个人博客。通过调研，尝试了下Win10+Hexo+GitHub的组合，成功搭建了自己的博客，以下为详细步骤。
+基本环境1、Node.js下载和安装：https://nodejs.org/en/
+2、Git下载和安装：https://git-scm.com/download/wi...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -587,24 +406,21 @@ xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Hadoop-Zookeeper-Hbase高可用集群搭建/" >
+        <a class="abstract-title" href = "/2019/08/12/hello-world/" >
             
-                <span>Hadoop+Zookeeper+Hbase高可用集群搭建</span>
+                <span>Hello World</span>
         </a>
         <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介在工作中，生产环境和测试环境各搭建了一套Hadoop HA集群且运行稳定，以下为测试环境的详细部署流程以及在使用过程中踩过的坑和解决方案。
-集群配置
-服务器：五台处理器：Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz内存：16G磁盘：1THadoop版本：2.7.2Zookeeper版本：3.4.9Hbase版本：1.2.4
-
-集群基础环境...
+            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/12</span>
             </div>
             <!-- tags  -->
             
@@ -614,7 +430,7 @@ xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存�
     <!-- paginator  -->
     
     <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">NEXT &#62;</a>
+        <a class="extend prev" rel="prev" href="/archives/2019/">&#60; PREV</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
     </nav>
     
 </main>

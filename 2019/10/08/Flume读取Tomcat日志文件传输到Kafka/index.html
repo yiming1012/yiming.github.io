@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>天天学习 好好向上</title>
+    <title>Flume读取Tomcat日志文件传输到Kafka · 天天学习 好好向上</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >千里之行 始于足下</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Flume读取Tomcat日志文件传输到Kafka</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>千里之行 始于足下</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/night.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Flume读取Tomcat日志文件传输到Kafka
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">764</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/10/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,285 +393,80 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/11/20/利用Tesseract-ocr进行图片文字识别/" >
-            
-                <span>利用Tesseract-ocr进行图片文字识别</span>
-        </a>
-        <div class="abstract-content">
-            文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-背景简介&#160;&#160;&#160;&#160;最近有一个需求，识别随车清单图片，并提取关键信息。经过调研选取了两种方法尝试：
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p>文章作者：易明<br>个人博客：<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fyiming1012.github.io%2F" target="_blank" rel="noopener">https://yiming1012.github.io</a><br>简书主页：<a href="https://www.jianshu.com/u/6ebea55f5cec" target="_blank" rel="noopener">https://www.jianshu.com/u/6ebea55f5cec</a><br>邮箱地址：<a href="https://links.jianshu.com/go?to=mailto%3A1129079384%40qq.com" target="_blank" rel="noopener">1129079384@qq.com</a></p>
+</blockquote>
+<h1 id="一、Flume简介"><a href="#一、Flume简介" class="headerlink" title="一、Flume简介"></a>一、Flume简介</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#官网简介</span><br><span class="line">Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. </span><br><span class="line">#System Requirements</span><br><span class="line">1.  Java Runtime Environment - Java 1.8 or later</span><br><span class="line">2.  Memory - Sufficient memory for configurations used by sources, channels or sinks</span><br><span class="line">3.  Disk Space - Sufficient disk space for configurations used by channels or sinks</span><br><span class="line">4.  Directory Permissions - Read/Write permissions for directories used by agent</span><br><span class="line"></span><br><span class="line">#综述</span><br><span class="line">Flume是一种分布式，可靠且可用的服务，用于有效地收集，聚合和移动大量日志数据。</span><br><span class="line">Flume运行环境需要Java 1.8以上，有足够的内存和磁盘来支持，而且目录有读写权限。</span><br></pre></td></tr></table></figure>
+<h1 id="二、Flume架构"><a href="#二、Flume架构" class="headerlink" title="二、Flume架构"></a>二、Flume架构</h1><p><img src="https://github.com/yiming1012/resource/blob/master/flume1.png?raw=true" alt="Flume架构图"><br>&#160;&#160;&#160;&#160;Flume架构主要有三个组件：Source、Channel和Sink。</p>
+<ol>
+<li>When a Flume source receives an event, it stores it into one or more channels. </li>
+<li>The channel is a passive store that keeps the event until it’s consumed by a Flume sink. The file channel is one example – it is backed by the local filesystem. </li>
+<li>The sink removes the event from the channel and puts it into an external repository like HDFS (via Flume HDFS sink) or forwards it to the Flume source of the next Flume agent (next hop) in the flow. </li>
+</ol>
+<h1 id="三、Flume-example"><a href="#三、Flume-example" class="headerlink" title="三、Flume example"></a>三、Flume example</h1><h4 id="Flume-Source"><a href="#Flume-Source" class="headerlink" title="Flume Source"></a>Flume Source</h4><p>通过调研，对日志文件的读取可以采用如下三种Source：<br>Exec Source、Spooling Directory Source和Taildir Source。</p>
+<ol>
+<li>Exec Source可对日志中新增的数据进行监控，但是如果agent挂掉后，不支持断点续传。</li>
+<li>Spooling Directory Source能获取一个目录中新增的文件，但是不能监控单个文件的新增数据。</li>
+<li>Taildir Source在磁盘上产生一个JSON文件，记录日志读取的位置，在agent挂掉重启之后，从记录的位置执行，从而实现断点续传。<h4 id="Flume-Sink"><a href="#Flume-Sink" class="headerlink" title="Flume Sink"></a>Flume Sink</h4>由于我们需要将日志数据实时写入Kafka，所以这里使用Kafka Sink。根据官网文档，<code>type</code>和<code>kafka.bootstrap.servers</code>必须设置，且为：<code>org.apache.flume.sink.kafka.KafkaSink</code>和<code>hostname:port</code>。<h4 id="Flume-Configuration-File"><a href="#Flume-Configuration-File" class="headerlink" title="Flume Configuration File"></a>Flume Configuration File</h4>创建一个Flume配置文件<code>file-flume-kafka.conf</code>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># example.conf: A single-node Flume configuration</span><br><span class="line"></span><br><span class="line"># Name the components on this agent</span><br><span class="line">a1.sources = r1</span><br><span class="line">a1.sinks = k1</span><br><span class="line">a1.channels = c1</span><br><span class="line"></span><br><span class="line"># Describe/configure the source</span><br><span class="line">a1.sources.r1.type = TAILDIR</span><br><span class="line">a1.sources.r1.filegroups = f1</span><br><span class="line">a1.sources.r1.filegroups.f1 = /home/zulin/tomcat7-webgis/logs/localhost_access_log.*.txt</span><br><span class="line"># 元数据位置</span><br><span class="line">a1.sources.r1.positionFile = /home/zulin/taildir_position.json</span><br><span class="line">a1.sources.r1.fileHeader = true</span><br><span class="line"></span><br><span class="line"># Describe the sink</span><br><span class="line">a1.sinks.k1.type = org.apache.flume.sink.kafka.KafkaSink</span><br><span class="line">a1.sinks.k1.topic = testflume</span><br><span class="line">a1.sinks.k1.brokerList = 90.0.25.8:9092,90.0.25.9:9092,90.0.25.10:9092</span><br><span class="line">a1.sinks.k1.requiredAcks = 1</span><br><span class="line">a1.sinks.k1.batchSize = 20</span><br><span class="line"></span><br><span class="line"># Use a channel which buffers events in memory</span><br><span class="line">a1.channels.c1.type = memory</span><br><span class="line">a1.channels.c1.capacity = 1000</span><br><span class="line">a1.channels.c1.transactionCapacity = 100</span><br><span class="line"></span><br><span class="line"># Bind the source and sink to the channel</span><br><span class="line">a1.sources.r1.channels = c1</span><br><span class="line">a1.sinks.k1.channel = c1</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>由于日志文件以日期命名，如localhost_access_log.2019-10-08.txt，我们可以采用通配符“<code>*</code>”来代替当天的日期。</p>
+<h4 id="Start-Flume"><a href="#Start-Flume" class="headerlink" title="Start Flume"></a>Start Flume</h4><ol>
+<li><p>启动Flume：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/flume-ng agent --conf conf --conf-file job/file-flume-kafka.conf --name a1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动Kafka Consumer消费数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./kafka-console-consumer.sh --bootstrap-server hadoop08:9092,hadoop09:9092,hadoop10:9092 --topic testflume</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://github.com/yiming1012/resource/blob/master/flume2.png?raw=true" alt><br>&#160;&#160;&#160;&#160;&#160;&#160;以上为启动后的效果，左边为Kafka消费的数据，右边为<code>tail -f</code>实时显示日志文件中新增数据的效果，可以看到数据几乎是同步的。后面可通过Spark Streaming来的实时处理Kafka中的数据。</p>
 
-1、Google维护的Tesseract-ocr2、百度云OCR
-
-Tesseract-ocr介绍1、从https://github.com/UB-Mannheim/tesseract/wiki下载对应的版本。推荐4.0以上。
-2、安装过程中需...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/20</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/29/利用HBase自带的Expor和Import跨集群数据迁移/" >
-            
-                <span>利用HBase Export/Import跨集群数据迁移</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-背景&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;最近需要将本地HBase集群（Hadoop2.7.2+HBase1.2.4）数据迁移到阿里云集群（Hadoop2.7.7+HBase1.4.10）上，而两个集群之间是不能相互通信的。通过查阅资料，使用HBase自带的Export/Import实现，这种方法不是直接将原表数据拷贝...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://yiming1012.github.io">易明</a>
+            <p>原文链接：<a href="https://yiming1012.github.io/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/">https://yiming1012.github.io/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/</a>
+            <p>发表日期：<a href="https://yiming1012.github.io/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/">October 8th 2019, 6:12:01 pm</a>
+            <p>更新日期：<a href="https://yiming1012.github.io/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/">November 27th 2019, 4:21:07 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/15/HBase集群配置Snappy压缩算法/" >
-            
-                <span>HBase集群配置Snappy压缩算法</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-一、背景介绍&#160;&#160;&#160;&#160;&#160;在生产环境搭建了Hadoop HA集群（Hadoop2.7.7+HBase1.4.10）。根据官方文档，Snappy 压缩算法在Hadoop 1.0.2中即可使用。![]https://github.com/yiming1012/resource/blob/master/snappy1.png?raw=t...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/15</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/08/Flume读取Tomcat日志文件传输到Kafka/" >
-            
-                <span>Flume读取Tomcat日志文件传输到Kafka</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-一、Flume简介1234567891011#官网简介Flume is a distributed, reliable, and available service for efficiently collecting, aggregating, and moving large amounts of log data. #System Requirements1.  Jav...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/10/08/sqlyog将csv文件导入到mysql/" >
-            
-                <span>sqlyog将csv文件导入到mysql</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;&#160;&#160;由于工作需要，初次尝试将csv文件导入到Mysql中时，出现了乱码，于是查阅资料，并成功解决，具体步骤记录如下。1、首先根据需要导入的字段，在Mysql中创建表1CREATE TABLE callLetterList (callLetter VARCHAR (20) NULL) ;
-2、新建一个Exc...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/22/Python发送带附件的邮件/" >
-            
-                <span>Python发送带附件的邮件</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;在工作中可能会遇到将生成的文件以邮件的方式发送给他人。通过SMTP（Simple Mail Transfer Protocol）简单邮件传输协议来发送邮件。这里主要用到Python中两个库：121. smtplib #对smtp协议进行了封装2. email   #用来创建邮件
-SMTP服务&#160;&#160;&#160...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/22</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/16/python利用openpyxl读写Excel/" >
-            
-                <span>python利用openpyxl读写Excel</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介&#160;&#160;&#160;&#160;&#160;&#160;最近的数据分析工作需要将数据插入到给定格式的Excel文件（.xlsx）中。通过调研发现：
-
-xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存为xls文件，不能为xlsx文件，而金山的WPS Office既可保存为xls，也可保存为xlsx。由于我用的是WPS，不存在不能对xl...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/16</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/TDengine-Telegraf-Grafana搭建监控系统/" >
-            
-                <span>TDengine+Telegraf+Grafana搭建监控系统</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介：  &#160; &#160; &#160;&#160;TDengine是一个高效的存储、查询、分析时序大数据的平台，专为物联网、车联网、工业互联网、运维监测等优化而设计。而作为服务于一家车联网公司且有着钻研精神的大数据工程师，自然会摸索一番。 &#160; &#160; &#160;&#160;在安装好TDengine后，根据官方给出的TDengine+Telegra...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Windows和Linux下Python连接TDengine/" >
-            
-                <span>Windows和Linux下Python连接TDengine</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介 &#160; &#160; &#160;&#160;从https://www.taosdata.com/cn/getting-started/下载并安装最新的安装包（最早的版本在访问过程中可能会出现TSDB error: authentication failure的错误）。TDengine在今天发布了Linux和Windows对应的Python模块，现在可以通过Pyt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/08/13/Hadoop-Zookeeper-Hbase高可用集群搭建/" >
-            
-                <span>Hadoop+Zookeeper+Hbase高可用集群搭建</span>
-        </a>
-        <div class="abstract-content">
-            
-文章作者：易明个人博客：https://yiming1012.github.io简书主页：https://www.jianshu.com/u/6ebea55f5cec邮箱地址：1129079384@qq.com
-
-简介在工作中，生产环境和测试环境各搭建了一套Hadoop HA集群且运行稳定，以下为测试环境的详细部署流程以及在使用过程中踩过的坑和解决方案。
-集群配置
-服务器：五台处理器：Intel(R) Core(TM) i5-6500 CPU @ 3.20GHz内存：16G磁盘：1THadoop版本：2.7.2Zookeeper版本：3.4.9Hbase版本：1.2.4
-
-集群基础环境...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/13</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/10/15/HBase集群配置Snappy压缩算法/" title= "HBase集群配置Snappy压缩算法">
+                    <div class="nextTitle">HBase集群配置Snappy压缩算法</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/10/08/sqlyog将csv文件导入到mysql/" title= "sqlyog将csv文件导入到mysql">
+                    <div class="prevTitle">sqlyog将csv文件导入到mysql</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">NEXT &#62;</a>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -709,6 +559,24 @@ xlrd/xlwt对文件的读写速度较快，对于微软的office，只能保存�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、Flume简介"><span class="toc-number">1.</span> <span class="toc-text">一、Flume简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、Flume架构"><span class="toc-number">2.</span> <span class="toc-text">二、Flume架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、Flume-example"><span class="toc-number">3.</span> <span class="toc-text">三、Flume example</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Flume-Source"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">Flume Source</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Flume-Sink"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">Flume Sink</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Flume-Configuration-File"><span class="toc-number">3.0.0.3.</span> <span class="toc-text">Flume Configuration File</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Start-Flume"><span class="toc-number">3.0.0.4.</span> <span class="toc-text">Start Flume</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1000,6 +868,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
